@@ -1,6 +1,6 @@
 # Looking for Chars
 
-A beginner level task for practicing loops and branches.
+An intermediate level task for practicing loops and branches.
 
 The task is to implement three methods using "for", "while" and "do" statements.
 
