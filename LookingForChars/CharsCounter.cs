@@ -13,7 +13,31 @@ namespace LookingForChars
         public static int GetCharsCount(string str, char[] chars)
         {
             // TODO #1. Implement the method using "for" statement.
-            throw new NotImplementedException();
+
+            if (chars is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            if (str is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            var result = 0;
+            for (int i = 0; i < str.Length; i++)
+            {
+                for (int j = 0; j < chars.Length; j++)
+                {
+                    if (str[i] == chars[j])
+                    {
+                        result++;
+                        break;
+                    }
+                }
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -27,7 +51,61 @@ namespace LookingForChars
         public static int GetCharsCount(string str, char[] chars, int startIndex, int endIndex)
         {
             // TODO #2. Implement the method using "while" statement.
-            throw new NotImplementedException();
+            if (chars is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            if (str is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            if (endIndex > str.Length)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (endIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex > endIndex)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex > str.Length)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            var result = 0;
+
+            while (startIndex <= endIndex)
+            {
+                int i = 0;
+                while (i < chars.Length)
+                {
+                    if (str[startIndex] == chars[i])
+                    {
+                        result++;
+                        break;
+                    }
+
+                    i++;
+                }
+
+                startIndex++;
+            }
+
+            return result;
         }
 
         /// <summary>
@@ -42,7 +120,71 @@ namespace LookingForChars
         public static int GetCharsCount(string str, char[] chars, int startIndex, int endIndex, int limit)
         {
             // TODO #3. Implement the method using "do..while" statements.
-            throw new NotImplementedException();
+            if (chars is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            if (endIndex > str.Length)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (endIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (limit < 0)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex > endIndex)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex > str.Length)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (startIndex < 0)
+            {
+                throw new ArgumentOutOfRangeException("error");
+            }
+
+            if (str is null)
+            {
+                throw new ArgumentNullException("error");
+            }
+
+            var result = 0;
+
+            do
+            {
+                int i = 0;
+                do
+                {
+                    if (str[startIndex] == chars[i])
+                    {
+                        result++;
+                        break;
+                    }
+
+                    i++;
+                } while (i < chars.Length);
+
+                if (result + 1 > limit)
+                {
+                    break;
+                }
+
+                startIndex++;
+            } while (startIndex <= endIndex);
+
+            return result;
         }
     }
 }
